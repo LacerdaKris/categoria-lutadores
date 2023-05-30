@@ -23,18 +23,15 @@ var verificaCategorias = classificar(peso1, peso2);
 console.log(verificaCategorias);
 
 
-//classificar por diferença de peso máxima de 5kg com entrada da função sendo um array
-function diferencaMaxima(pesos) {
-  //itera no array dos pesos pelo índice e compara diferença de peso
-  var diferenca = pesos[0] - pesos[1];
-  if (diferenca > 5 || diferenca < -5) {
-    return "NÃO PODEM LUTAR";
-  } else {
-    return "PODEM LUTAR";
-  }
-}
+//classificar por diferença de peso máxima de 5kg com arrow function
+const solucao = (lutadorA, lutadorB) => {
+  const diferenca = Math.abs(lutadorA - lutadorB);
+  return diferenca > 5 ? "NÃO PODEM LUTAR" : "PODEM LUTAR";
+};
 
-var pesos = [50, 56];
+const pesos = [50, 56];
+const verificador = solucao(...pesos);
+console.log(verificador);
 
 var verificador = diferencaMaxima(pesos);
 console.log(verificador);
